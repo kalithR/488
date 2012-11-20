@@ -1113,7 +1113,6 @@ var _defaults = {
   customFilters: {},
   customFlags: {},
   globalFlags: '',
-  onSuccess: function() { window.location="http://www.google.com" ;},
   onFail: function() { alert('Invalid!') },
   responsiveAt: 'auto',
   disableCustom: ''

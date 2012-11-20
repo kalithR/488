@@ -4,8 +4,7 @@
 <!--[if IE 9 ]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta charset="utf-8"/>
+
 <title>User Registation</title>
 <!--[if lt IE 9]>
 <script src="js/lib/html5shiv.js"></script>
@@ -25,7 +24,7 @@
 
     <!-- Begin Form -->
 
-    <form id="my-form">
+    <form action="process.php" id="my-form" method="post">
 
         <section name="Step 1">
           <div>
@@ -146,7 +145,10 @@
 <script>
 
   var options = {
-
+	  
+  onSuccess: function(evt) {
+    $.post('process.php', $myform.serialize())
+  },
     onFail: function() {
       alert( $myform.getInvalid().length +' invalid fields.' )
     },
@@ -193,8 +195,6 @@
   $('#reset').click(function(){ $myform.reset().fresh().focusFirst() });
   $myform.focusFirst();
 </script>
-<?php 
-    $id = $_POST["username"];
-?>
+
 </body>
 </html>
